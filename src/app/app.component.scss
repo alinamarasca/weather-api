@@ -1,0 +1,56 @@
+@import "../styles.scss";
+
+header {
+  @extend %row-center;
+  @extend %glass;
+  width: 100vw;
+  height: 5rem;
+  padding: 1rem;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  .date {
+    font-size: 1.2rem;
+    position: absolute;
+    right: 20px;
+    top: 30%;
+    opacity: 0.8;
+  }
+}
+
+input {
+  font-size: 1.2rem;
+  color: #fff;
+  width: 500px;
+  border-radius: $border-radius;
+  border: 1px solid rgba(#fff, 0.4);
+  background-color: $main;
+
+  padding: 0.5rem;
+
+  &:focus {
+    border: 5px solid rgba(#fff, 0.7);
+    outline: 5px solid rgba(#fff, 0.4);
+  }
+}
+
+.background {
+  width: 100vw;
+  height: 100vh;
+  background: $main;
+  background: rgb(58, 158, 255);
+  background: linear-gradient(
+    180deg,
+    rgba(58, 158, 255, 1) 55%,
+    rgba(255, 255, 255, 1) 100%
+  );
+
+  .content {
+    @extend %column-center;
+    width: 400px;
+    height: 100vh;
+    margin: auto;
+  }
+}

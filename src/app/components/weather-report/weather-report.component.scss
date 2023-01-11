@@ -1,0 +1,82 @@
+@import "../../../styles.scss";
+
+.weather-card {
+  @extend %column-center;
+  width: 500px;
+
+  &__content {
+    @extend %column-center;
+    gap: 0.5rem;
+    width: 100%;
+    color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    &__main {
+      @extend %glass;
+      width: 100%;
+      padding: 3rem 3rem 1rem 3rem;
+      border-radius: $border-radius $border-radius 2px 2px;
+
+      .degrees {
+        @extend %column-center;
+
+        .real {
+          font-size: 60px;
+          font-weight: 800;
+          margin-bottom: 2rem;
+        }
+
+        .feel {
+          text-align: right;
+          opacity: 0.7;
+        }
+      }
+
+      .description {
+        text-align: left;
+        font-size: 1.4rem;
+
+        span {
+          font-weight: 700;
+        }
+      }
+      .illustration {
+        height: 150px;
+        width: 200px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      img {
+        height: 220px;
+      }
+    }
+
+    &__details {
+      @extend %glass;
+      width: 100%;
+      padding: 1rem 3rem 1rem 3rem;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    &__sun {
+      @extend %glass;
+      width: 100%;
+      padding: 1rem 3rem 1rem 3rem;
+      border-radius: 2px 2px $border-radius $border-radius;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+}

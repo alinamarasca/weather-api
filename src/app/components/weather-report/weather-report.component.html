@@ -1,0 +1,68 @@
+<div class="weather-card" *ngIf="data$ | async as data">
+  <div class="weather-card__content">
+    <div class="weather-card__content__main">
+      <p class="description">
+        <span>{{ data.weather[0].description | titlecase }}</span> in
+        {{ data.name }}
+      </p>
+
+      <div class="temp">
+        <div class="row">
+          <div class="illustration">
+            <img [src]="data.image" class="image" />
+          </div>
+          <div class="degrees">
+            <p class="real">
+              {{ data.main.temp >= 0 ? "+" : "-" }}
+              {{ data.main.temp | number : "0.0-0" }} C
+            </p>
+            <p class="feel">
+              Feels like
+              {{ data.main.temp >= 0 ? "+" : "-" }}
+              {{ data.main.feels_like | number : "0.0-0" }} C
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="weather-card__content__details">
+      <div class="col">
+        <div class="row">
+          <mat-icon>grain</mat-icon>
+          <p>Humidity: {{ data.main.humidity | number : "0.0-0" }}%</p>
+        </div>
+        <div class="row">
+          <mat-icon>air</mat-icon>
+          <p>Wind speed: {{ data.wind.speed | number : "0.0-0" }} km/h</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="row">
+          <mat-icon>thermostat</mat-icon>
+          <p>
+            Min temp: {{ data.main.temp_min >= 0 ? "+" : "-" }}
+            {{ data.main.temp_min | number : "0.0-0" }} C
+          </p>
+        </div>
+        <div class="row">
+          <mat-icon>thermostat</mat-icon>
+          <p>
+            Max temp: {{ data.main.temp_max >= 0 ? "+" : "-" }}
+            {{ data.main.temp_max | number : "0.0-0" }} C
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="weather-card__content__sun">
+      <div class="row">
+        <mat-icon>wb_sunny</mat-icon>
+        Sunrise:
+        {{ data.sys.sunrise | date : "shortTime" }}
+      </div>
+      <div class="row">
+        <mat-icon>bedtime </mat-icon>
+        Sunset: {{ data.sys.sunset | date : "shortTime" }}
+      </div>
+    </div>
+  </div>
+</div>
