@@ -1,3 +1,4 @@
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -7,8 +8,10 @@ import {
   scan,
   distinctUntilChanged,
   Observable,
+  tap,
+  combineLatest,
+  map,
 } from 'rxjs';
-import { WeatherApiService } from './services/weather-api.service';
 
 @Component({
   selector: 'app-root',
@@ -21,9 +24,18 @@ export class AppComponent implements OnInit, OnDestroy {
   cityControl = new FormControl();
   selectedCity: any;
 
-  constructor(private router: Router) {}
+  isBigScreen$ = new Observable<boolean>();
+
+  constructor(
+    private router: Router,
+    private breakpointObserver: BreakpointObserver
+  ) {}
 
   ngOnInit() {
+    this.isBigScreen$ = this.breakpointObserver
+      .observe('(min-width:1070px)')
+      .pipe(map(({ matches }) => matches));
+
     this.cityControl.valueChanges
       .pipe(
         // distinctUntilChanged(),

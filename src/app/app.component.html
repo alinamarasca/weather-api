@@ -1,4 +1,4 @@
-<div class="background">
+<div class="background" [class.smaller-screen]="!(isBigScreen$ | async)">
   <div class="content">
     <header>
       <input
