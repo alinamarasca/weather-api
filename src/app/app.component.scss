@@ -49,8 +49,33 @@ input {
 
   .content {
     @extend %column-center;
-    width: 400px;
     height: 100vh;
     margin: auto;
+  }
+}
+
+.smaller-screen {
+  header {
+    @extend %column-center;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+
+    gap: 1rem;
+    width: 100vw;
+    height: 6rem;
+
+    padding: 1rem;
+
+    .date {
+      width: 100%;
+      position: relative;
+      text-align: center;
+    }
+  }
+
+  input {
+    width: 90%;
+    min-width: 200px;
+    max-width: 500px;
   }
 }

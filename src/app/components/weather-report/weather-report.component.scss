@@ -2,7 +2,7 @@
 
 .weather-card {
   @extend %column-center;
-  width: 500px;
+  width: fit-content;
 
   &__content {
     @extend %column-center;
@@ -44,6 +44,7 @@
           font-weight: 700;
         }
       }
+
       .illustration {
         height: 150px;
         width: 200px;
@@ -57,7 +58,7 @@
         height: 220px;
       }
     }
-
+    // main ends
     &__details {
       @extend %glass;
       width: 100%;
@@ -66,10 +67,12 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      gap: 2rem;
     }
 
     &__sun {
       @extend %glass;
+
       width: 100%;
       padding: 1rem 3rem 1rem 3rem;
       border-radius: 2px 2px $border-radius $border-radius;
@@ -79,4 +82,89 @@
       justify-content: space-between;
     }
   }
+}
+
+.small-screen {
+  font-size: 1rem;
+  margin: auto;
+
+  .weather-card__content {
+    width: 95%;
+    min-width: 300px;
+
+    &__main {
+      padding: 2rem 2rem 1rem 2rem;
+      .degrees {
+        .real {
+          font-size: 50px;
+        }
+      }
+
+      .illustration {
+        height: 100px;
+        width: 150px;
+
+        img {
+          height: 160px;
+        }
+      }
+
+      .temp {
+        .row {
+          @extend %row-between;
+          width: 100%;
+        }
+      }
+    }
+
+    &__details {
+      padding: 1rem;
+      margin: auto;
+      gap: 1rem;
+
+      .col {
+        width: 50%;
+      }
+    }
+
+    &__sun {
+      padding: 1rem;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .real {
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 2rem;
+  }
+
+  .feel {
+    text-align: right;
+    opacity: 0.7;
+  }
+}
+
+.description {
+  text-align: left;
+  font-size: 1.4rem;
+
+  span {
+    font-weight: 700;
+  }
+}
+
+.illustration {
+  height: 150px;
+  width: 200px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  height: 220px;
 }

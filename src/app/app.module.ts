@@ -12,6 +12,7 @@ import { Routes } from '@angular/router';
 import { WeatherReportComponent } from './components/weather-report/weather-report.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [AppComponent, WeatherReportComponent],
@@ -27,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule,
     MatIconModule,
+    LayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

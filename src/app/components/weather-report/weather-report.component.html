@@ -1,4 +1,8 @@
-<div class="weather-card" *ngIf="data$ | async as data">
+<div
+  class="weather-card"
+  *ngIf="data$ | async as data"
+  [class.small-screen]="isSmallScreen$ | async"
+>
   <div class="weather-card__content">
     <div class="weather-card__content__main">
       <p class="description">
