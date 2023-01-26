@@ -1,4 +1,4 @@
-## A project user RxJS Observbales and [OpenWeather API] (https://openweathermap.org/api).
+## A project user RxJS Observbales and [OpenWeather API](https://openweathermap.org/api).
 
 ### Limitations:
 - weather forecast accuracy depends on API => 50/50 accurate
